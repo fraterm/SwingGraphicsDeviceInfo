@@ -23,8 +23,12 @@ class SwingGDIApp {
 		// MenuBar - CenterPanel with main app components - Footerthingy
 		// MenuBar
 		JMenuBar mb = new JMenuBar();
-		JMenu m1 = new JMenu ("File");
-		JMenu m2 = new JMenu ("Help");
+		JMenu menuFile = new JMenu ("File");
+		//menuFile.setMnemonic(KeyEvent.VK_F);
+		mb.add(menuFile);
+		JMenu menuHelp = new JMenu ("Help");
+		//menuHelp.setMnemonic(KeyEvent.VK_H);
+		mb.add(menuHelp);
 		// CenterPanel
 		JPanel panel = new JPanel();
 		// the following components are in the CenterPanel panel
@@ -33,10 +37,10 @@ class SwingGDIApp {
 		JButton gatherButton = new JButton("Gather Info");
 		/* JTextArea  for the screenDevice information to be inserted into 
 		 * a JScrollPane */
-		JTextArea infoTextArea = new JTextArea(10,30);
+		JTextArea infoTextArea = new JTextArea(25,80);
 		JScrollPane infoTextScrollPane = new JScrollPane(infoTextArea);
-		infoTextScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		infoTextScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		//infoTextScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		//infoTextScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		// add to the panel
 
 		/* populate with components */
