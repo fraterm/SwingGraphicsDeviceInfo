@@ -10,10 +10,36 @@ class SwingGDIApp {
 		 * This application is initially just concerned with screens and 
 		 * their characteristics
 		 * */
-		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		GraphicsDevice[] screenDevices = ge.getScreenDevices();
-		int screenDevNum = screenDevices.length;
-		System.out.format("screenDevices: %d\n", screenDevNum);
+		GraphicsEnvironment graphicsEnvironment = 
+				GraphicsEnvironment.getLocalGraphicsEnvironment();
+		GraphicsDevice defaultScreenDevice = graphicsEnvironment.getDefaultScreenDevice();
+		GraphicsDevice[] scrDevs = 
+				graphicsEnvironment.getScreenDevices();
+		int scrDevCount = scrDevs.length;
+		System.out.format("screenDevices: %d\n", scrDevCount);
+		boolean isDefaultScreenDevice;
+		// iterate over graphicsDevices
+		for ( GraphicsDevice sd : scrDevs) 
+		{
+			System.out.println("Information about Device:"+sd.getIDstring().toString());
+			if (defaultScreenDevice.equals(sd)) {
+				isDefaultScreenDevice = true;
+				System.out.println("is the Default Screen Device");
+			}else {
+				isDefaultScreenDevice = false;
+				System.out.println("is not the Default Screen Device");
+
+			}
+			System.out.println("DisplayMode:"+sd.getDisplayMode().toString());
+			System.out.println("display modes array length:"+ sd.getDisplayModes().length);
+			System.out.format("type:%d\n", sd.getType());
+			System.out.format("availableAcceleratedMemory:%d\n", sd.getAvailableAcceleratedMemory());
+			System.out.println("getIDstring returns:"+ sd.getIDstring().toString());
+			System.out.println("Bit Depth:"+ sd.getDisplayMode().getBitDepth());
+			System.out.println("Height:"+ sd.getDisplayMode().getHeight());
+			System.out.println("Width"+ sd.getDisplayMode().getWidth());
+		}
+		
 
 		JFrame appFrame = new JFrame("SwingGDI app");
 		appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,12 +70,7 @@ class SwingGDIApp {
 		// add to the panel
 
 		/* populate with components */
-		/* gridbag layout */
-		GridBagLayout layout = new GridBagLayout();
-		GridBagConstraints constraints = new GridBagConstraints();
-		constraints.gridx=0;
-		constraints.gridy=0;
-		panel.add(infoTextScrollPane,constraints); 
+		panel.add(infoTextScrollPane); 
 		// AddComponentsToFrame
 		appFrame.getContentPane().add(BorderLayout.NORTH, mb);
 		//appFrame.getContentPane().add(BorderLayout.WEST, something);
@@ -59,25 +80,20 @@ class SwingGDIApp {
 		appFrame.setVisible(true);
 	}
 }
-
 /* 
- * GraphicsEnvironment ge = GraphicsEnvironment.
-   getLocalGraphicsEnvironment();
-   GraphicsDevice[] gs = ge.getScreenDevices();
-   for (int j = 0; j < gs.length; j++) {
-      GraphicsDevice gd = gs[j];
-      GraphicsConfiguration[] gc =
-      gd.getConfigurations();
-      for (int i=0; i < gc.length; i++) {
-         JFrame f = new
-         JFrame(gs[j].getDefaultConfiguration());
-         Canvas c = new Canvas(gc[i]);
-         Rectangle gcBounds = gc[i].getBounds();
-         int xoffs = gcBounds.x;
-         int yoffs = gcBounds.y;
-         f.getContentPane().add(c);
-         f.setLocation((i*50)+xoffs, (i*60)+yoffs);
-         f.show();
-      }
-   }
-   */
+ * 
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+
+public class ScreenDevice {
+
+    public static void main(String[] args) {
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice[] gd = ge.getScreenDevices();
+
+        for (GraphicsDevice g : gd) {
+            System.out.println("The type of the screen device is " + g.getType());
+        }
+    }
+}
+ * */
