@@ -1,4 +1,4 @@
-package SwingGDIApp.src.test.java.net.approachzero.app;
+package net.approachzero.app;
 
 import static org.junit.Assert.assertTrue;
 

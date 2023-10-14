@@ -1,5 +1,4 @@
 package net.approachzero.app;
-//package SwingGDIApp.src.main.java.net.approachzero.app;
 import javax.swing.*;
 import java.awt.*;
 
@@ -40,6 +39,7 @@ class SwingGDIApp {
 			System.out.println("Bit Depth:"+ sd.getDisplayMode().getBitDepth());
 			System.out.println("Height:"+ sd.getDisplayMode().getHeight());
 			System.out.println("Width"+ sd.getDisplayMode().getWidth());
+			System.out.println("TODO");
 		}
 		
 
