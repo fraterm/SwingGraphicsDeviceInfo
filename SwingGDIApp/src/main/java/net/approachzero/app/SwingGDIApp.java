@@ -1,3 +1,5 @@
+package net.approachzero.app;
+//package SwingGDIApp.src.main.java.net.approachzero.app;
 import javax.swing.*;
 import java.awt.*;
 
@@ -32,7 +34,7 @@ class SwingGDIApp {
 			}
 			System.out.println("DisplayMode:"+sd.getDisplayMode().toString());
 			System.out.println("display modes array length:"+ sd.getDisplayModes().length);
-			System.out.format("type:%d\n", sd.getType());
+			System.out.format("raw type value:%d\n", sd.getType());  // TYPE_IMAGE_BUFFER = 2, TYPE_PRINTER = 1, TYPE_RASTER_SCREEN = 0
 			System.out.format("availableAcceleratedMemory:%d\n", sd.getAvailableAcceleratedMemory());
 			System.out.println("getIDstring returns:"+ sd.getIDstring().toString());
 			System.out.println("Bit Depth:"+ sd.getDisplayMode().getBitDepth());
@@ -80,7 +82,7 @@ class SwingGDIApp {
 		appFrame.setVisible(true);
 	}
 }
-/* 
+/* *
  * 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -96,4 +98,5 @@ public class ScreenDevice {
         }
     }
 }
+ * 
  * */
